@@ -1,15 +1,12 @@
 const express = require("express");
 const router = express.Router();
-
-const adminUser = "test";
-const adminPassword = "test";
-
+const config = require('../config');
 const crypto = require("crypto");
 
 router.post("login", async (req, res, next) => {
     const loginRequest = req.body;
 
-    if (loginRequest.username === adminUser && loginRequest.password === adminPassword) {
+    if (loginRequest.username === config.adminUser && loginRequest.password === config.adminPassword) {
         res.json({token: crypto.randomUUID()})
     } else {
         res.status(401); // 401 Unauthorized
