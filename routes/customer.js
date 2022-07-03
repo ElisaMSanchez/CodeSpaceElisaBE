@@ -5,7 +5,7 @@ const customerService = require("../services/customer");
 router.get('/customer', async (req, res, next) => {
     console.log(`Buscando customers con nombre: ${req.query.search}`);
 
-    const customers = await customerService.findAllCustomersWithFilter(req.query.search);
+    const customers = await customerService.findAllCustomersWithFilter(req.query.search || "");
 
     res.status(200)
         .json(customers);
