@@ -4,10 +4,12 @@ const port = 3001;
 const customerRouter = require('./routes/customer');
 const voucherRouter = require('./routes/voucher');
 const lessonRouter = require('./routes/lesson');
+const loginRouter = require('./routes/login');
 app.use(express.json());
 app.use(customerRouter);
 app.use(voucherRouter);
 app.use(lessonRouter);
+app.use(loginRouter);
 app.get("/", (req, res) => {
     res.status(200)
         .json({ message: "ok" });

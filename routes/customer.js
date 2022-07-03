@@ -3,6 +3,10 @@ const router = express.Router();
 
 router.get('/customer', async (req, res, next) => {
     console.log(`Buscando customers con nombre: ${req.query.search}`);
+    console.log(req.query.name);
+    console.log(req.body);
+    console.log(req.params.id)
+
     res.status(200)
         .json([{"name": "paco"}, {"name": "jesus"}]);
 });
