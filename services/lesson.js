@@ -48,7 +48,7 @@ async function updateLesson(lessonId, updateLesson) {
         return updatedLesson;
 
     } else {
-        return {};
+        return null;
     }
 }
 

@@ -11,7 +11,7 @@ router.get("/customer/:customerId/voucher/active", async (req, res, next) => {
         .json(openVoucher);
 });
 
-router.post("/customer/:customerId/voucher/opened", async (req, res, next) => {
+router.post("/customer/:customerId/voucher/open", async (req, res, next) => {
     console.log(`${req.params.customerId}`);
 
     const openVoucher = await voucherService.openVoucher(req.params.customerId);
@@ -25,7 +25,7 @@ router.patch("/customer/:customerId/voucher/:voucherId/closed", async (req, res,
 
     await voucherService.closeVoucher(req.params.voucherId);
 
-    res.status(204);
+    res.sendStatus(204);
 });
 
 module.exports = router;

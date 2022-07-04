@@ -10,7 +10,17 @@ async function findAllCustomersWithFilter(search) {
 
     console.log(rows);
 
-    return rows;
+    return rows.map(row => {
+        return {
+            id: row.id,
+            comments: row.comments,
+            email: row.email,
+            firstSurname: row.first_surname,
+            lastSurname: row.last_surname,
+            name: row.name,
+            phone: row.phone
+        };
+    });
 }
 
 async function saveCustomer(createCustomer) {

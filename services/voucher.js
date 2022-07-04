@@ -11,11 +11,20 @@ async function findOpenVoucher(customerId) {
     const rows = await db.query(`SELECT *
                                  FROM tatydog.voucher
                                  WHERE customer_id = '${customerId}'
-                                   AND status = ${VoucherStatuses.open}`);
+                                   AND status = '${VoucherStatuses.open}'`);
 
     console.log(rows);
 
-    return rows[0] || {};
+    if (rows[0]) {
+        return {
+            id: rows[0].id,
+            maxLessons: rows[0].max_lessons,
+            status: rows[0].status,
+            customerId: rows[0].customer_id
+        }
+    } else {
+        return null;
+    }
 }
 
 async function openVoucher(customerId) {
