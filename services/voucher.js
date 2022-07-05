@@ -22,7 +22,7 @@ async function findOpenVoucher(customerId) {
             status: rows[0].status,
             customerId: rows[0].customer_id
         }
-    } else {
+    } else {    
         return null;
     }
 }

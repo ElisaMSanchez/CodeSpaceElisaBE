@@ -8,7 +8,17 @@ async function findLessonsByVoucherId(voucherId) {
 
     console.log(lessons);
 
-    return lessons;
+    //TODO renombrar columnas para que sea compatibles.  Hecho
+    return lessons.map(lesson => {
+        return {
+            id: lesson.id,
+            createdAt: lesson.created_at,
+            externalComment: lesson.external_comment,
+            internalComment: lesson.internal_comment,
+            voucherId: lesson.voucher_id
+
+        }
+    })
 }
 
 
