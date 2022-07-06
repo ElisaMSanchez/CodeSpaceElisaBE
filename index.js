@@ -20,6 +20,10 @@ app.get("/", (req, res) => {
     res.status(200)
         .json({message: "ok"});
 });
+app.use((err, req, res, next) => {
+    const statusCode = err.statusCode || 500;
+    res.status(statusCode).json({ message: err.message });
+});
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
 });

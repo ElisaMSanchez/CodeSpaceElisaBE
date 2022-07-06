@@ -4,6 +4,7 @@ const config = {
         user: "tatydog_admin",
         password: "!TatyDog1234",
         database: "tatydog",
+        timezone: 'utc'
     },
     adminUser: "test",
     adminPassword: "test",

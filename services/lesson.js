@@ -8,11 +8,10 @@ async function findLessonsByVoucherId(voucherId) {
 
     console.log(lessons);
 
-    //TODO renombrar columnas para que sea compatibles.  Hecho
     return lessons.map(lesson => {
         return {
             id: lesson.id,
-            createdAt: lesson.created_at,
+            createdAt: lesson.created_at.toISOString().substring(0, 10),
             externalComment: lesson.external_comment,
             internalComment: lesson.internal_comment,
             voucherId: lesson.voucher_id
@@ -23,6 +22,8 @@ async function findLessonsByVoucherId(voucherId) {
 
 
 async function registerLesson(createLesson, voucherId) {
+
+    console.log(createLesson.createdAt);
 
     const lesson = {
         ...createLesson,
@@ -38,6 +39,8 @@ async function registerLesson(createLesson, voucherId) {
 }
 
 async function updateLesson(lessonId, updateLesson) {
+
+    console.log(updateLesson.createdAt);
 
     const lessons = await db.query(`SELECT *
                                     FROM tatydog.lesson

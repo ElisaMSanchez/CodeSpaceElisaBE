@@ -29,7 +29,7 @@ create table tatydog.lesson
 (
     id               varchar(36)  not null,
     created_at       date         not null,
-    external_comment varchar(255) not null,
+    external_comment varchar(255),
     internal_comment varchar(255) not null,
     voucher_id       varchar(36)  not null,
     primary key (id)
