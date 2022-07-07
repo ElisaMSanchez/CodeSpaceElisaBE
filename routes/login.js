@@ -9,7 +9,7 @@ router.post("/login", async (req, res, next) => {
     if (loginRequest.username === config.adminUser && loginRequest.password === config.adminPassword) {
         res.json({token: crypto.randomUUID()})
     } else {
-        res.status(401); // 401 Unauthorized
+        res.sendStatus(401); // 401 Unauthorized
     }
 });
 
