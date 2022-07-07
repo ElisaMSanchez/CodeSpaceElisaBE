@@ -4,7 +4,11 @@ const config = {
         user: "tatydog_admin",
         password: "!TatyDog1234",
         database: "tatydog",
-        timezone: 'utc'
+        timezone: 'Z',
+        waitForConnections: true,
+        connectionLimit: 10,
+        queueLimit: 20,
+        dateStrings: true
     },
     adminUser: "test",
     adminPassword: "test",

@@ -11,7 +11,7 @@ async function findLessonsByVoucherId(voucherId) {
     return lessons.map(lesson => {
         return {
             id: lesson.id,
-            createdAt: lesson.created_at.toISOString().substring(0, 10),
+            createdAt: lesson.created_at,
             externalComment: lesson.external_comment,
             internalComment: lesson.internal_comment,
             voucherId: lesson.voucher_id
